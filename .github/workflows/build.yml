@@ -1,0 +1,58 @@
+name: Build Workflow
+on:
+  push:
+    branches:
+    - master
+    paths-ignore:
+    - '**.md'
+    - '**.yml'
+    - '**/doc'
+
+  pull_request:
+    types:
+    - opened
+    - synchronize
+    - reopened
+    paths-ignore:
+    - '**.md'
+    - '**.yml'
+    - '**/doc'
+
+jobs:
+  Windows-i386:
+    runs-on: windows-2019
+    env:
+      BUILD_DIR: build
+      BUILD_TYPE: Release
+
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+    - name: Install MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: MINGW32
+
+    - name: Setup Dependencies
+      run: |
+        pacman -S --noconfirm git mingw-w64-i686-toolchain mingw32/mingw-w64-i686-cmake make mingw-w64-i686-gimp
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Build & Package
+      run: |
+        mkdir build
+        cd build
+        cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
+        cmake --build .
+        mkdir Artifacts
+        cp file-max.exe Artifacts/
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build artifacts
+        path: ${{env.BUILD_DIR}}/Artifacts
