@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project>
+	<configuration id="cmake4eclipse.mbs.toolchain.cmake.1208299493" name="Default">
+		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+			<provider copy-of="extension" id="cmake4eclipse.lsp.CompileCommandsJsonParser"/>
+			<provider class="de.marw.cmake.cdt.language.settings.providers.BuiltinsCompileCommandsJsonParser" id="de.marw.cmake.cdt.language.settings.providers.BuiltinsCompileCommandsJsonParser" name="CMAKE_EXPORT_COMPILE_COMMANDS Compiler Built-ins (deprecated)" prefer-non-shared="true">
+				<language-scope id="org.eclipse.cdt.core.gcc"/>
+				<language-scope id="org.eclipse.cdt.core.g++"/>
+			</provider>
+		</extension>
+	</configuration>
+</project>

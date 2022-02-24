@@ -1,0 +1,48 @@
+name: 🐞 Bug Report
+description: Something does not work correctly in the M.A.X. GIMP Plug-In.
+title: "[Bug] "
+labels: ["bug"]
+body:
+- type: dropdown
+  id: os
+  attributes:
+    label: Operating System
+    description: What Operating System are you using GIMP and the Plug-In on?
+    options:
+      - Windows
+      - Linux
+      - MacOS
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: GIMP and Plug-In Versions
+    description: |
+      The version of GIMP can be found in the Help / About GIMP menu. The version of the Plug-In can be found in the Help / Procedure Browser menu. Search for file-max-load.
+    placeholder: GIMP version: xyz. M.A.X. GIMP Plug-In version: xyz.
+  validations:
+    required: true
+- type: checkboxes
+  attributes:
+    label: Which image format is affected by the bug?
+    options:
+    - label: Basic Image
+    - label: Palette Image
+    - label: Unit Sprite
+    - label: Unit Shadow
+- type: textarea
+  attributes:
+    label: What is the issue you encountered?
+    description: |
+      Describe the issue in detail. If possible include a step by step guide to recreate your issue. If it is not obvious please also tell us, what did you expect to happen?
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Anything to add?
+    description: |
+      Additional information about your environment, log files, crash reports from the OS, etc.
+      
+      Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
+  validations:
+    required: false
