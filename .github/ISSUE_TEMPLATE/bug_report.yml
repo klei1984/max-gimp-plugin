@@ -19,7 +19,8 @@ body:
     label: GIMP and Plug-In Versions
     description: |
       The version of GIMP can be found in the Help / About GIMP menu. The version of the Plug-In can be found in the Help / Procedure Browser menu. Search for file-max-load.
-    placeholder: GIMP version: xyz. M.A.X. GIMP Plug-In version: xyz.
+    placeholder: |
+      GIMP version: xyz. M.A.X. GIMP Plug-In version: xyz.
   validations:
     required: true
 - type: checkboxes
