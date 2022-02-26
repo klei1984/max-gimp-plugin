@@ -46,7 +46,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
+        cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
         cmake --build .
         mkdir Artifacts
         cp file-max.exe Artifacts/
